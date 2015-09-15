@@ -1,7 +1,8 @@
 # CTA_ETA
 
 This is a personal project to pull arrival time info for CTA train and bus stops nearest to my home.
-The program also pulls information on the 4 divvy stations nearest my home.
+The program also pulls information on the 4 divvy stations nearest my home. Arrival times are
+calculated assuming central time zone.
 
 The program is setup to run on a 1024x1280 monitor and is directly launched when my raspberry pi
 is turned on. In my home, my raspberry pi is connected to a light switch which will activate/deactivate
