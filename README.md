@@ -4,7 +4,7 @@ This is a personal project to pull arrival time info for CTA train and bus stops
 The program also pulls information on the 4 divvy stations nearest my home. Arrival times are
 calculated assuming central time zone.
 
-The program is setup to run on a 1024x1280 monitor and is directly launched when my raspberry pi
+The program is setup to run on a 1280x1024 monitor and is directly launched when my raspberry pi
 is turned on. In my home, my raspberry pi is connected to a light switch which will activate/deactivate
 the program when flipped.
 
@@ -13,7 +13,7 @@ with text objects overlaid on top. The text objects are updated every 15 seconds
 information.
 
 The program is designed to enter full screen mode when started. It can be exited by clicking the 'X'
-in the NW corner of the screen which will kill full screen mode, allowing the program to be exited.
+in the NW corner of the screen which will kill full screen mode and exit the program.
 
 Thanks for checking it out!
 -Scott Cronin
