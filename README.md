@@ -13,7 +13,7 @@ with text objects overlaid on top. The text objects are updated every 15 seconds
 information.
 
 The program is designed to enter full screen mode when started. It can be exited by clicking the 'X'
-in the NW corner of the screen which will kill full screen mode and exit the program.
+in the SW corner of the screen which will kill full screen mode and exit the program.
 
 Thanks for checking it out!
 -Scott Cronin
