@@ -5,9 +5,8 @@ The program also pulls information on the 4 divvy stations nearest my home. Arri
 calculated assuming central time zone.
 
 Check out a live demonstration here:  
-<https://youtu.be/5FSH5J0YN6Y>
+[![CTA ETA Demonstration](http://img.youtube.com/vi/5FSH5J0YN6Y/0.jpg)](https://youtu.be/5FSH5J0YN6Y "CTA ETA Demonstration")
 
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/5FSH5J0YN6Y "CTA ETA Demonstration")
 
 ***
 The program is setup to run on a 1280x1024 monitor and is directly launched when my raspberry pi
