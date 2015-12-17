@@ -4,6 +4,10 @@ This is a personal project to pull arrival time info for CTA train and bus stops
 The program also pulls information on the 4 divvy stations nearest my home. Arrival times are
 calculated assuming central time zone.
 
+Check out a live demonstration here:  
+<https://youtu.be/5FSH5J0YN6Y>
+
+***
 The program is setup to run on a 1280x1024 monitor and is directly launched when my raspberry pi
 is turned on. In my home, my raspberry pi is connected to a light switch which will activate/deactivate
 the program when flipped.
