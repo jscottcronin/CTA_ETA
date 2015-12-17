@@ -5,7 +5,7 @@ The program also pulls information on the 4 divvy stations nearest my home. Arri
 calculated assuming central time zone.
 
 Check out a live demonstration here:  
-[![CTA ETA Demonstration](http://img.youtube.com/vi/5FSH5J0YN6Y/0.jpg)](https://youtu.be/5FSH5J0YN6Y "CTA ETA Demonstration")
+[![CTA ETA Demonstration](http://img.youtube.com/vi/5FSH5J0YN6Y/maxresdefault.jpg)](https://youtu.be/5FSH5J0YN6Y "CTA ETA Demonstration")
 
 
 ***
