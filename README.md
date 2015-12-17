@@ -7,6 +7,8 @@ calculated assuming central time zone.
 Check out a live demonstration here:  
 <https://youtu.be/5FSH5J0YN6Y>
 
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/5FSH5J0YN6Y "CTA ETA Demonstration")
+
 ***
 The program is setup to run on a 1280x1024 monitor and is directly launched when my raspberry pi
 is turned on. In my home, my raspberry pi is connected to a light switch which will activate/deactivate
