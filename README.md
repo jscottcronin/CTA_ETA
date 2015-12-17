@@ -4,7 +4,7 @@ This is a personal project to pull arrival time info for CTA train and bus stops
 The program also pulls information on the 4 divvy stations nearest my home. Arrival times are
 calculated assuming central time zone.
 
-Check out a live demonstration here:  
+Check out a live demonstration by clicking on the img below:  
 [![CTA ETA Demonstration](http://img.youtube.com/vi/ND5az9ROl94/maxresdefault.jpg)](https://youtu.be/ND5az9ROl94 "CTA ETA Demonstration")
 
 
