@@ -3,6 +3,7 @@ import xml.etree.ElementTree as ET
 from collections import defaultdict
 from datetime import datetime as dt
 from Tkinter import *
+import os
 
 
 def busTimes(data, ctaBusKey):
@@ -93,7 +94,7 @@ def bikeData(data):
     OUTPUT:     None
     '''
 
-    r = requests.get('http://www.divvybikes.com/stations/json/')
+    r = requests.get('https://feeds.divvybikes.com/stations/stations.json')
     for i in data['divvy']:
         for stn in data['divvy'][i]:
             txt = str(r.json()['stationBeanList'][int(i)]['availableBikes']) \
@@ -193,8 +194,8 @@ if __name__ == '__main__':
     canvas.create_window(0, 1024, anchor=SW, window=button)
 
     # CTA API keys. Insert your own as a string.
-    ctaBusKey = ''
-    ctaTrainKey = ''
+    ctaBusKey = os.environ['CTA_BUS_KEY']
+    ctaTrainKey = os.environ['CTA_TRAIN_KEY']
 
     # data dict containing info for all stations to pull data for.
     # 'pos' is a key referring to x, y coords for displaying text in GUI
@@ -202,21 +203,21 @@ if __name__ == '__main__':
                                '30122': {'dir': 'south', 'pos': (1004, 123)}},
                        'Brn': {'30155': {'dir': 'north', 'pos': (371, 294)},
                                '30156': {'dir': 'south', 'pos': (921, 294)}},
-                       'P': {'30155': {'dir': 'north', 'pos': (645, 294)},
-                             '30156': {'dir': 'south', 'pos': (1193, 294)}}},
+                       'P':   {'30155': {'dir': 'north', 'pos': (645, 294)},
+                               '30156': {'dir': 'south', 'pos': (1193, 294)}}},
 
             'buses': {'156': {'1450': {'dir': 'north', 'pos': (460, 468)},
                               '1411': {'dir': 'south', 'pos': (1004, 468)}},
-                      '22': {'1903': {'dir': 'north', 'pos': (460, 565)},
-                             '1847': {'dir': 'south', 'pos': (1004, 565)}},
-                      '36': {'1903': {'dir': 'north', 'pos': (460, 663)},
-                             '1847': {'dir': 'south', 'pos': (1004, 663)}},
-                      '72': {'924': {'dir': 'west', 'pos': (422, 906)}}},
+                      '22':  {'1902': {'dir': 'north', 'pos': (460, 565)},
+                              '1847': {'dir': 'south', 'pos': (1004, 565)}},
+                      '36':  {'1902': {'dir': 'north', 'pos': (460, 663)},
+                              '1847': {'dir': 'south', 'pos': (1004, 663)}},
+                      '72':  {'923': {'dir': 'west', 'pos': (422, 906)}}},
 
-            'divvy': {'278': {'Clark St & Schiller St': {'pos': (1135, 810)}},
-                      '112': {'Clark St & North Ave': {'pos': (1135, 867)}},
-                      '159': {'Clark St & Elm St': {'pos': (1135, 924)}},
-                      '104': {'Sedgwick St & North Ave': {'pos': (1135, 981)}}}}
+            'divvy': {'278': {'Clark St & Schiller St': {'pos': (1125, 950)}},
+                      '112': {'Clark St & North Ave': {'pos': (1125, 840)}},
+                      '266': {'Wells St & Concord Ln': {'pos': (830, 840)}},
+                      '268': {'Wells St & Evergreen Ave': {'pos': (830, 950)}}}}
 
     initialize_display(data, canvas)
     collectData()
