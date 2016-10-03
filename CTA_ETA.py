@@ -4,6 +4,7 @@ from collections import defaultdict
 from datetime import datetime as dt
 from Tkinter import *
 import os
+from pytz import timezone
 
 
 def busTimes(data, ctaBusKey):
@@ -34,7 +35,10 @@ def busTimes(data, ctaBusKey):
                 arrTimes = []
                 for predTime in predTimes:
                     pred_time = dt.strptime(predTime.text, '%Y%m%d %H:%M')
-                    now = dt.now()
+                    now = (
+                        dt.now(timezone('UTC'))
+                        .astimezone(timezone('US/Central'))
+                    )
                     if pred_time > now:
                         arrTimes.append((pred_time - now).seconds // 60)
                     else:
