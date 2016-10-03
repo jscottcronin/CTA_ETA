@@ -35,6 +35,7 @@ def busTimes(data, ctaBusKey):
                 arrTimes = []
                 for predTime in predTimes:
                     pred_time = dt.strptime(predTime.text, '%Y%m%d %H:%M')
+                    pred_time = timezone('US/Central').localize(pred_time)
                     now = (
                         dt.now(timezone('UTC'))
                         .astimezone(timezone('US/Central'))
@@ -74,7 +75,11 @@ def trainTimes(data, ctaTrainKey):
                 arrTimes = []
                 for predTime in predTimes:
                     pred_time = dt.strptime(predTime.text, '%Y%m%d %H:%M:%S')
-                    now = dt.now()
+                    pred_time = timezone('US/Central').localize(pred_time)
+                    now = (
+                        dt.now(timezone('UTC'))
+                        .astimezone(timezone('US/Central'))
+                    )
                     if pred_time > now:
                         arrTimes.append((pred_time - now).seconds // 60)
                     else:
