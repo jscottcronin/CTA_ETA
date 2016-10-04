@@ -5,6 +5,31 @@ from Tkinter import *
 import os
 from pytz import timezone
 
+# data dict containing info for all stations to pull data for.
+# 'pos' is a key referring to x, y coords for displaying text in GUI
+data = {'trains': {'Red': {'30121': {'dir': 'north', 'pos': (460, 123)},
+                           '30122': {'dir': 'south', 'pos': (1004, 123)}},
+                   'Brn': {'30155': {'dir': 'north', 'pos': (371, 294)},
+                           '30156': {'dir': 'south', 'pos': (921, 294)}},
+                   'P':   {'30155': {'dir': 'north', 'pos': (645, 294)},
+                           '30156': {'dir': 'south', 'pos': (1193, 294)}}},
+
+        'buses': {'156': {'1450': {'dir': 'north', 'pos': (460, 468)},
+                          '1411': {'dir': 'south', 'pos': (1004, 468)}},
+                  '22':  {'1902': {'dir': 'north', 'pos': (460, 565)},
+                          '1847': {'dir': 'south', 'pos': (1004, 565)}},
+                  '36':  {'1902': {'dir': 'north', 'pos': (460, 663)},
+                          '1847': {'dir': 'south', 'pos': (1004, 663)}},
+                  '72':  {'923': {'dir': 'west', 'pos': (422, 906)}}},
+
+        'divvy': {'278': {'Clark St & Schiller St': {'pos': (1125, 950)}},
+                  '112': {'Clark St & North Ave': {'pos': (1125, 840)}},
+                  '266': {'Wells St & Concord Ln': {'pos': (830, 840)}},
+                  '268': {'Wells St & Evergreen Ave': {'pos': (830, 950)}}}}
+
+# CTA API keys. Insert your own as a string.
+ctaBusKey = os.environ['CTA_BUS_KEY']
+ctaTrainKey = os.environ['CTA_TRAIN_KEY']
 
 def busTimes(data, ctaBusKey):
     '''
@@ -111,7 +136,7 @@ def bikeData(data):
             data['divvy'][i][stn]['txt'] = txt
 
 
-def collectData():
+def collectData(root, canvas):
     '''
     PURPOSE:    collectData is a function to update arrival time and bike info
                 in Tkinter display by calling trainTimes, busTimes, and
@@ -201,34 +226,8 @@ def main():
     button = Button(root, text='x', command=exitFullScreen)
     canvas.create_window(0, 1024, anchor=SW, window=button)
 
-    # CTA API keys. Insert your own as a string.
-    ctaBusKey = os.environ['CTA_BUS_KEY']
-    ctaTrainKey = os.environ['CTA_TRAIN_KEY']
-
-    # data dict containing info for all stations to pull data for.
-    # 'pos' is a key referring to x, y coords for displaying text in GUI
-    data = {'trains': {'Red': {'30121': {'dir': 'north', 'pos': (460, 123)},
-                               '30122': {'dir': 'south', 'pos': (1004, 123)}},
-                       'Brn': {'30155': {'dir': 'north', 'pos': (371, 294)},
-                               '30156': {'dir': 'south', 'pos': (921, 294)}},
-                       'P':   {'30155': {'dir': 'north', 'pos': (645, 294)},
-                               '30156': {'dir': 'south', 'pos': (1193, 294)}}},
-
-            'buses': {'156': {'1450': {'dir': 'north', 'pos': (460, 468)},
-                              '1411': {'dir': 'south', 'pos': (1004, 468)}},
-                      '22':  {'1902': {'dir': 'north', 'pos': (460, 565)},
-                              '1847': {'dir': 'south', 'pos': (1004, 565)}},
-                      '36':  {'1902': {'dir': 'north', 'pos': (460, 663)},
-                              '1847': {'dir': 'south', 'pos': (1004, 663)}},
-                      '72':  {'923': {'dir': 'west', 'pos': (422, 906)}}},
-
-            'divvy': {'278': {'Clark St & Schiller St': {'pos': (1125, 950)}},
-                      '112': {'Clark St & North Ave': {'pos': (1125, 840)}},
-                      '266': {'Wells St & Concord Ln': {'pos': (830, 840)}},
-                      '268': {'Wells St & Evergreen Ave': {'pos': (830, 950)}}}}
-
     initialize_display(data, canvas)
     updateDisplay(data, canvas)
-    collectData()
+    collectData(root, canvas)
     root.after(10000, lambda: root.destroy())
     root.mainloop()
