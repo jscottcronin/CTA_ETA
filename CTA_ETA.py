@@ -5,6 +5,7 @@ from Tkinter import *
 import os
 from pytz import timezone
 
+
 # data dict containing info for all stations to pull data for.
 # 'pos' is a key referring to x, y coords for displaying text in GUI
 data = {'trains': {'Red': {'30121': {'dir': 'north', 'pos': (460, 123)},
@@ -28,8 +29,8 @@ data = {'trains': {'Red': {'30121': {'dir': 'north', 'pos': (460, 123)},
                   '268': {'Wells St & Evergreen Ave': {'pos': (830, 950)}}}}
 
 # CTA API keys. Insert your own as a string.
-ctaBusKey = os.environ['CTA_BUS_KEY']
-ctaTrainKey = os.environ['CTA_TRAIN_KEY']
+# ctaBusKey = os.environ['CTA_BUS_KEY']
+# ctaTrainKey = os.environ['CTA_TRAIN_KEY']
 
 def busTimes(data, ctaBusKey):
     '''
@@ -136,7 +137,7 @@ def bikeData(data):
             data['divvy'][i][stn]['txt'] = txt
 
 
-def collectData(root, canvas):
+def collectData(root, canvas, ctaTrainKey, ctaBusKey):
     '''
     PURPOSE:    collectData is a function to update arrival time and bike info
                 in Tkinter display by calling trainTimes, busTimes, and
@@ -226,8 +227,9 @@ def main():
     button = Button(root, text='x', command=exitFullScreen)
     canvas.create_window(0, 1024, anchor=SW, window=button)
 
+    ctaBusKey, ctaTrainKey = api_keys.get()
     initialize_display(data, canvas)
     updateDisplay(data, canvas)
-    collectData(root, canvas)
+    collectData(root, canvas, ctaTrainKey, ctaBusKey)
     root.after(10000, lambda: root.destroy())
     root.mainloop()

@@ -1,1 +1,4 @@
 *.ipynb
+*.pyc
+CTA_ETA.sh
+api_keys.py
