@@ -4,6 +4,7 @@ from datetime import datetime as dt
 from Tkinter import *
 import os
 from pytz import timezone
+import api_keys
 
 
 # data dict containing info for all stations to pull data for.
@@ -152,7 +153,7 @@ def collectData(root, canvas, ctaTrainKey, ctaBusKey):
     busTimes(data, ctaBusKey)
     bikeData(data)
     updateDisplay(data, canvas)
-    root.after(15000, collectData)  # loop collectData every 15 seconds
+    root.after(15000, lambda: collectData(root, canvas, ctaTrainKey, ctaBusKey))  # loop collectData every 15 seconds
 
 
 def initialize_display(data, cvs):
@@ -231,5 +232,5 @@ def main():
     initialize_display(data, canvas)
     updateDisplay(data, canvas)
     collectData(root, canvas, ctaTrainKey, ctaBusKey)
-    root.after(10000, lambda: root.destroy())
+    root.after(70000, lambda: root.destroy())
     root.mainloop()

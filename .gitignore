@@ -2,3 +2,4 @@
 *.pyc
 CTA_ETA.sh
 api_keys.py
+foo.py
