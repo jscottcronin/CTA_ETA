@@ -1,6 +1,5 @@
 import requests
 import xml.etree.ElementTree as ET
-from collections import defaultdict
 from datetime import datetime as dt
 from Tkinter import *
 import os
@@ -183,7 +182,7 @@ def exitFullScreen():
     root.quit()
 
 
-if __name__ == '__main__':
+def main():
     '''
     PURPOSE:    Create Tkinter GUI, pull arrival time info from CTA Bus
                 and Train Tracker APIs, pull bike data info from Divvy API
@@ -229,5 +228,7 @@ if __name__ == '__main__':
                       '268': {'Wells St & Evergreen Ave': {'pos': (830, 950)}}}}
 
     initialize_display(data, canvas)
+    updateDisplay(data, canvas)
     collectData()
+    root.after(10000, lambda: root.destroy())
     root.mainloop()
